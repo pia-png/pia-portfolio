@@ -1,0 +1,290 @@
+/* =========================
+   Custom Font
+   ========================= */
+
+@font-face {
+    font-family: "pia-font";
+    src: url("font/Pia_font-Regular.otf") format("opentype");
+}
+
+/* =========================
+   Global Reset
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        linear-gradient(
+            rgba(0,0,0,.55),
+            rgba(0,0,0,.8)
+        ),
+        url("images/background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    color: #f5f1e8;
+    font-family: Arial, sans-serif;
+}
+
+/* =========================
+   Sections
+   ========================= */
+
+.panel {
+    min-height: 100vh;
+    padding: 8vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background: rgba(10,10,10,.35);
+}
+
+/* =========================
+   Typography
+   ========================= */
+h1,
+h2,
+h3 {
+    font-family: "pia-font", serif;
+    font-weight: normal;
+}
+
+h2 {
+    font-size: clamp(3rem, 5vw, 5rem);
+    margin-bottom: 50px;
+}
+
+/* =========================
+   Hero Section
+   ========================= */
+
+.panel-header {
+    align-items: flex-start;
+}
+
+.panel-header h1 {
+    font-size: clamp(4rem, 10vw, 8rem);
+    line-height: .9;
+    max-width: 900px;
+}
+
+.panel-header p {
+    margin-top: 30px;
+    font-family: "pia-font", serif;
+
+    max-width: 550px;
+
+    font-size: 1.3rem;
+    color: #cfc8bc;
+}
+
+/* =========================
+   About Section
+   ========================= */
+
+.panel-about {
+    background: rgba(20,20,20,.55);
+}
+
+.content-container {
+    max-width: 750px;
+}
+
+.content-container p {
+    color: #c8c2b8;
+    font-size: 1.2rem;
+    font-family: "pia-font", serif;
+    margin-bottom: 25px;
+}
+
+/* =========================
+   Interest Cards
+   ========================= */
+
+.panel-personality {
+    background: rgba(5,5,5,.55);
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.card {
+    position: relative;
+
+    height: 260px;
+    padding: 40px;
+
+    background: rgba(25,25,25,.8);
+
+    border: 1px solid #333;
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    transition: .5s ease;
+}
+
+.card::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent,
+            rgba(255,255,255,.12)
+        );
+
+    opacity: 0;
+
+    transition: .5s;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+
+    border-color: #aaa;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card h3 {
+    position: relative;
+
+    font-size: 2.3rem;
+}
+
+.card p {
+    position: relative;
+    font-family: "pia-font", serif;
+    margin-top: 20px;
+
+    color: #aaa;
+}
+
+/* =========================
+   Film Projects
+   ========================= */
+
+.panel-projects {
+    background: rgba(15,15,15,.6);
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.project-card {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 25px;
+    text-decoration: none;
+    color: white;
+    background: black;
+}
+
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .7s ease;
+}
+
+.project-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,.9)
+        );
+}
+
+.project-card:hover img {
+    transform: scale(1.1);
+}
+
+.project-info {
+    position: absolute;
+    bottom: 35px;
+    left: 35px;
+    z-index: 2;
+}
+
+.project-info h3 {
+    font-size: 2.5rem;
+}
+
+/* =========================
+   Contact
+   ========================= */
+
+.panel-contact {
+    background: rgba(0,0,0,.7);
+    align-items: flex-start;
+}
+
+.panel-contact p {
+    font-family: "pia-font", serif;
+    max-width: 600px;
+    color: #aaa;
+}
+
+.footer-links a {
+    display: inline-block;
+    font-family: "pia-font";
+    margin-top: 30px;
+    color: white;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.footer-links a:hover {
+    letter-spacing: 2px;
+}
+
+/* =========================
+   Mobile
+   ========================= */
+
+@media(max-width:800px) {
+    .panel {
+        padding: 10vw 7%;
+    }
+
+    .card-container,
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        height: 350px;
+    }
+
+} 
+   
